@@ -259,7 +259,7 @@
                         <div class="col col-md-6">
                             <div class="input-container"> 
                                 <i class="fa fa-sitemap" aria-hidden="true"></i>
-                                <asp:DropDownList ID="ddlOrganization" runat="server" class="form-select">
+                                <asp:DropDownList ID="ddlOrganization" runat="server" CssClass="form-select">
     <asp:ListItem Text="Select Organization" Value="" />
 </asp:DropDownList>
                                 <%--<select class="form-select" >

@@ -127,17 +127,18 @@ h1,h2,h3,h4,h5,h6 {
 	font-size: .9rem;
 	font-weight: 500;
 }
-.form-control,.form-select {
-	color:#867E7E;
+.form-control, .form-select {
+	color: #867E7E;
 	font-size: .9rem;
 	border-radius: 10px;
-	border: 1px solid #006; 
+	border: 1px solid #006;
 	padding: 9px 15px 10px 40px;
 }
-.form-control:focus, .form-select:focus {
-    box-shadow: none;
-    border:1px solid var(--grayColor);
-}
+	 
+	.form-control:focus, .form-select:focus {
+		box-shadow: none;
+		border: 1px solid var(--grayColor);
+	}
 .form-check-input[type=checkbox]{
 	border: 1px solid var(--blackColor);
     border-radius: 0;
@@ -467,7 +468,7 @@ h1,h2,h3,h4,h5,h6 {
 		display: inline-block;
 		margin-top: 6px;
 	}
-
+  
 
 #txtemail, #ddlCategories2 {
 	display: block;
