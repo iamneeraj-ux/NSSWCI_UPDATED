@@ -59,6 +59,15 @@ namespace BllNationalSymposium
         {
             return DalNS.SetUserRegistrations(r);
         }
+        public static void SetInsertOrganization(string organisation, string email)
+        {
+             DalNS.SetInsertOrganization(organisation, email);
+
+        }
+        public static void SetInsertDesignation(string designation, string email)
+        {
+             DalNS.SetInsertDesignation(designation, email);
+        }
         #endregion
 
         #region UserLogin
@@ -92,6 +101,13 @@ namespace BllNationalSymposium
             return DalNS.Sp_ForgotPassword(email, password);
             // return r;
         }
+
         #endregion
+
+        public static void SetContactInfo(Contact c)
+        {
+            DalNS.SetContactInfo(c);
+
+        }
     }
 }

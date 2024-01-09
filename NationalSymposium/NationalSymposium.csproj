@@ -44,6 +44,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -1955,8 +1958,15 @@
     <Content Include="images\swachBharatlogo.png" />
     <Content Include="images\user-alt.png" />
     <Content Include="images\user.png" />
+    <Content Include="ns\AboutUs.aspx" />
+    <Content Include="ns\Admin\Dashboard.aspx" />
+    <Content Include="ns\Admin\Participants.aspx" />
+    <Content Include="ns\Admin\Speaker and Panelist.aspx" />
+    <Content Include="ns\Admin\SpeakerandPanelist.aspx" />
     <Content Include="ns\Admin_Page.aspx" />
     <Content Include="ns\a_faqs.aspx" />
+    <Content Include="ns\ContactUs.aspx" />
+    <Content Include="ns\FAQ.aspx" />
     <Content Include="ns\faq.html" />
     <Content Include="ns\faqs.aspx" />
     <Content Include="ns\forgot_password.aspx" />
@@ -2033,10 +2043,20 @@
     <Content Include="Content\AdminLte310\plugins\summernote\summernote.min.js.map" />
     <Content Include="Content\AdminLte310\plugins\toastr\toastr.js.map" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="ns\Submission-guidelines.aspx" />
     <Content Include="ns\submission-guidelines.html" />
+    <Content Include="ns\SubmissionGuide.aspx" />
+    <Content Include="ns\TermCondition.aspx" />
     <Content Include="ns\User_Page.aspx" />
     <Content Include="register_success.html" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\chart-pie.js" />
+    <Content Include="Scripts\chart.js" />
+    <Content Include="Scripts\chart.min-static.js" />
+    <Content Include="Scripts\chart.min.js" />
+    <Content Include="Scripts\chart2.js" />
+    <Content Include="Scripts\datatables.js" />
+    <Content Include="Scripts\datatables.min.js" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -2048,12 +2068,48 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Styles\datatable.min.css" />
     <Content Include="Styles\font-awesome.css" />
     <Content Include="Styles\main.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\ConstString.cs" />
+    <Compile Include="ns\AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ns\AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ns\Admin\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ns\Admin\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ns\Admin\Participants.aspx.cs">
+      <DependentUpon>Participants.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ns\Admin\Participants.aspx.designer.cs">
+      <DependentUpon>Participants.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ns\Admin\Speaker and Panelist.aspx.cs">
+      <DependentUpon>Speaker and Panelist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ns\Admin\Speaker and Panelist.aspx.designer.cs">
+      <DependentUpon>Speaker and Panelist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ns\Admin\SpeakerandPanelist.aspx.cs">
+      <DependentUpon>SpeakerandPanelist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ns\Admin\SpeakerandPanelist.aspx.designer.cs">
+      <DependentUpon>SpeakerandPanelist.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ns\Admin_Page.aspx.cs">
       <DependentUpon>Admin_Page.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2063,10 +2119,23 @@
     </Compile>
     <Compile Include="ns\a_faqs.aspx.cs">
       <DependentUpon>a_faqs.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ns\a_faqs.aspx.designer.cs">
       <DependentUpon>a_faqs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ns\ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ns\ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ns\FAQ.aspx.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ns\FAQ.aspx.designer.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
     </Compile>
     <Compile Include="ns\faqs.aspx.cs">
       <DependentUpon>faqs.aspx</DependentUpon>
@@ -2116,6 +2185,27 @@
     </Compile>
     <Compile Include="ns\reset_password.aspx.designer.cs">
       <DependentUpon>reset_password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ns\Submission-guidelines.aspx.cs">
+      <DependentUpon>Submission-guidelines.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ns\Submission-guidelines.aspx.designer.cs">
+      <DependentUpon>Submission-guidelines.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ns\SubmissionGuide.aspx.cs">
+      <DependentUpon>SubmissionGuide.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ns\SubmissionGuide.aspx.designer.cs">
+      <DependentUpon>SubmissionGuide.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ns\TermCondition.aspx.cs">
+      <DependentUpon>TermCondition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ns\TermCondition.aspx.designer.cs">
+      <DependentUpon>TermCondition.aspx</DependentUpon>
     </Compile>
     <Compile Include="ns\User_Page.aspx.cs">
       <DependentUpon>User_Page.aspx</DependentUpon>

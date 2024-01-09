@@ -1,19 +1,61 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="m.master.cs" Inherits="NationalSymposium.ns.m" %>
 
+
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="h" runat="server">
-    </asp:ContentPlaceHolder>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../Styles/font-awesome.css" rel="stylesheet" />
+    <link href="../Styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Styles/main.css" rel="stylesheet" />
+ <title>Jal Jeevan Mission</title>
 </head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="b" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-    </form>
+<body> 
+    <header class="header">
+     <div class="container">
+         <div class="row justify-content-center align-items-lg-center mobile--bg py-2 py-md-3">
+             <div class="col-8 col-md-6 col-lg-5">
+                 <a href="index.html" class="logo"><img src="images/logo.png" alt="logo"></a> 
+             </div> 
+             <div class="col-4 col-md-6 col-lg-7 text-end"> 
+                 <span><img src="images/swachBharatlogo.png" alt="swachBharatlogo" class="swachBharatlogo"></span>
+             </div>
+         </div> 
+     </div>
+ </header>
+
+
+ <div class="main-content">
+
+ </div>
+     
+  <footer class="footer">
+   <div class="container">
+       <div class="row">
+           <div class="col-12 col-sm-6 ">
+               <p class="copy-right">
+                   &copy; Copyrights 2023, Lead. All right are reserved.
+               </p>
+           </div>
+            <div class="col-12 col-sm-6">
+                <ul class="footer-nav"> 
+                    <li>
+                       <a href="ns/AboutUs.aspx"> About  </a>
+                   </li>
+                     <li>
+                       <a href="ns/ContactUs.aspx"> Contact  </a>
+                   </li>
+                </ul>
+            </div>
+       </div>
+   </div>
+</footer>
+        <script src="Scripts/bootstrap.bundle.min.js"></script> 
+    
 </body>
 </html>
+
+

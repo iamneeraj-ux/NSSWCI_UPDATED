@@ -28,12 +28,18 @@ namespace NationalSymposium.ns
             }
             else
             {
-                //lblMsg.Text = "Email has forwarded to your registered Email Id to reset the password.";
-                Utility.ShowToastrError(this, "Email has forwarded to your registered Email Id to reset the password.", "Success");
-                var baseUrl = ConfigurationManager.AppSettings["BaseUrl"];
-                string url = baseUrl+"?e = " + txtEmail.Text;
-                Utility.SendHtmlFormattedEmail(txtEmail.Text, "Forgot Password", PopulateBody(txtEmail.Text, url));
-                txtEmail.Text = string.Empty;
+                try
+                {
+                    var baseUrl = ConfigurationManager.AppSettings["BaseUrl"];
+                    string url = baseUrl + "?e = " + txtEmail.Text;
+                    Utility.SendHtmlFormattedEmail(txtEmail.Text, "Forgot Password", PopulateBody(txtEmail.Text, url));
+                    Utility.ShowToastrSuccess(this, "Email has forwarded to your registered Email Id to reset the password.", "Success");
+                    txtEmail.Text = string.Empty;
+                }
+                catch(Exception ex)
+                {
+                    Utility.ShowToastrError(this, "Email could not be send. Please try again!!!", "Error");
+                }
             }
         }
         private string PopulateBody(string userName, string url)

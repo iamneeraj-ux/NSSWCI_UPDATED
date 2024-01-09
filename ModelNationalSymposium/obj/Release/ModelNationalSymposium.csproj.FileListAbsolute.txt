@@ -4,3 +4,12 @@ D:\New folder\NationalSymposium\ModelNationalSymposium\obj\Release\ModelNational
 D:\New folder\NationalSymposium\ModelNationalSymposium\obj\Release\ModelNationalSymposium.csproj.CoreCompileInputs.cache
 D:\New folder\NationalSymposium\ModelNationalSymposium\obj\Release\ModelNationalSymposium.dll
 D:\New folder\NationalSymposium\ModelNationalSymposium\obj\Release\ModelNationalSymposium.pdb
+E:\Project\NSSWCI_UPDATED\ModelNationalSymposium\bin\Release\ModelNationalSymposium.dll
+E:\Project\NSSWCI_UPDATED\ModelNationalSymposium\bin\Release\ModelNationalSymposium.pdb
+E:\Project\NSSWCI_UPDATED\ModelNationalSymposium\bin\Release\Newtonsoft.Json.dll
+E:\Project\NSSWCI_UPDATED\ModelNationalSymposium\bin\Release\Newtonsoft.Json.xml
+E:\Project\NSSWCI_UPDATED\ModelNationalSymposium\obj\Release\ModelNationalSymposium.csproj.AssemblyReference.cache
+E:\Project\NSSWCI_UPDATED\ModelNationalSymposium\obj\Release\ModelNationalSymposium.csproj.CoreCompileInputs.cache
+E:\Project\NSSWCI_UPDATED\ModelNationalSymposium\obj\Release\ModelNationalSymposium.csproj.CopyComplete
+E:\Project\NSSWCI_UPDATED\ModelNationalSymposium\obj\Release\ModelNationalSymposium.dll
+E:\Project\NSSWCI_UPDATED\ModelNationalSymposium\obj\Release\ModelNationalSymposium.pdb

@@ -100,6 +100,27 @@ namespace DalNationalSymposium
             int i = cmd.ExecuteNonQuery();
             return 1;
         }
+
+        public static void SetInsertOrganization(string organisation,string email)
+        {
+            SqlConnection con = new SqlConnection(NSConnectionString);
+            const string sqlCmd = "Sp_InsertOrganization";
+            SqlCommand cmd = new SqlCommand(sqlCmd, con) { CommandType = CommandType.StoredProcedure };
+            con.Open();
+            cmd.Parameters.AddWithValue("@pText", organisation);
+            cmd.Parameters.AddWithValue("@pEmailId", email);
+             cmd.ExecuteNonQuery();
+        }
+        public static void SetInsertDesignation(string designation, string email)
+        {
+            SqlConnection con = new SqlConnection(NSConnectionString);
+            const string sqlCmd = "Sp_InsertDesignation";
+            SqlCommand cmd = new SqlCommand(sqlCmd, con) { CommandType = CommandType.StoredProcedure };
+            con.Open();
+            cmd.Parameters.AddWithValue("@pText", designation);
+            cmd.Parameters.AddWithValue("@pEmailId", email);
+            cmd.ExecuteNonQuery();
+        }
         #endregion
 
         #region UserLogin
@@ -164,5 +185,20 @@ namespace DalNationalSymposium
             return Convert.ToString(dt.Rows[0][0]);
         }
         #endregion
+
+        public static void SetContactInfo(Contact c)
+        {
+            SqlConnection con = new SqlConnection(NSConnectionString);
+            const string sqlCmd = "Sp_ContactUs";
+            SqlCommand cmd = new SqlCommand(sqlCmd, con) { CommandType = CommandType.StoredProcedure };
+            con.Open();
+            cmd.Parameters.AddWithValue("@pName", c.Name);
+            cmd.Parameters.AddWithValue("@pEmailId", c.EmailId);
+            cmd.Parameters.AddWithValue("@pSubject", c.Subject);
+            cmd.Parameters.AddWithValue("@pMessage", c.Message);
+            cmd.Parameters.AddWithValue("@pMobileNo", c.MobileNo);
+            cmd.Parameters.AddWithValue("@pCreatedBy", c.CreatedBy);
+            cmd.ExecuteNonQuery();
+        }
     }
 }

@@ -44,8 +44,8 @@
         <header class="header">
     <div class="container">
         <div class="row justify-content-center align-items-lg-center mobile--bg py-2 py-md-3">
-            <div class="col-8 col-md-6 col-lg-5">
-                <a href="index.html" class="logo"><img src="../images/logo.png" alt="logo"></a> 
+            <div class="col-8 col-md-6 col-lg-5"> 
+                <a href="../index.aspx" class="logo"><img src="../images/logo.png" alt="logo"></a> 
             </div> 
             <div class="col-4 col-md-6 col-lg-7 text-end"> 
                 <span><img src="../images/swachBharatlogo.png" alt="swachBharatlogo" class="swachBharatlogo"></span>
@@ -64,7 +64,7 @@
             <div class="col-11 col-md-8 col-lg-6"> 
                 <ul>
                     <li>
-                        <span>Date: </span> <small>12/12/2023</small>
+                        <span>Date: </span> <small>18/01/2024</small>
                     </li>
                     <li>
                         <span>Venue: </span> <strong>Auditorium, SPM Niwas, Kolkata</strong>
@@ -125,16 +125,26 @@
 
 </div>
 
-        <footer class="footer text-center">
+       <footer class="footer">
    <div class="container">
        <div class="row">
-           <div class="col-12">
-               <p>
+           <div class="col-12 col-sm-6 ">
+               <p class="copy-right">
                    &copy; Copyrights 2023, Lead. All right are reserved.
                </p>
-           </div> 
+           </div>
+            <div class="col-12 col-sm-6">
+                <ul class="footer-nav"> 
+                    <li> 
+                       <a href="AboutUs.aspx"> About us </a>
+                   </li>
+                     <li>
+                       <a href="ContactUs.aspx"> Contact us </a>
+                   </li>
+                </ul>
+            </div>
        </div>
-   </div> 
+   </div>
 </footer>
     </form>
     <script src="../Scripts/bootstrap.bundle.min.js"></script> 

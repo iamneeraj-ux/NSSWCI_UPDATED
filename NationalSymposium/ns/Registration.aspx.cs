@@ -25,6 +25,7 @@ namespace NationalSymposium.ns
             {
                 BindData();
             }
+
         }
 
         public void BindData()
@@ -32,15 +33,18 @@ namespace NationalSymposium.ns
             Utility.BindStates(ddlStates);
             Utility.BindDesignation(ddlDesignation);
             Utility.BindOrganisation(ddlOrganization);
+            //Utility.BindtxtOtherOrganisation(ddlOrganization);
+
         }
 
         protected void Submit_Click(object sender, EventArgs e)
         {
+            //string Organisation = txtOtherOrganisation.Text.Trim();
+            //string Designation = txtOtherDesignation.Text.Trim();
             Registrations registrations = new Registrations();
             registrations.Name = txtName.Text;
             registrations.EmailId = txtemail.Text;
             registrations.HashPassword = txtpassword.Text;
-            registrations.Organization = Convert.ToInt32(ddlOrganization.SelectedValue);
             registrations.CreatedOn = DateTime.Now;
             registrations.CreatedBy = Utility.GetIpAddress();
             registrations.UpdatedOn = Utility.GetMinDate();
@@ -48,25 +52,72 @@ namespace NationalSymposium.ns
             registrations.Participants = Convert.ToInt32(rdbParticipants.SelectedValue);
             registrations.Designation = Convert.ToInt32(ddlDesignation.SelectedValue);
             registrations.State = Convert.ToInt32(ddlStates.SelectedValue);
-            int i = BllNS.SetUserRegistration(registrations);
+            registrations.Organization = Convert.ToInt32(ddlOrganization.SelectedValue);
             int radioButtonValue = registrations.Participants;
-            if (i > 0)
+            if (flexCheckDefault.Checked == true)
             {
                 if (radioButtonValue == ConstString.Speaker)
                 {
-                    Utility.SendHtmlFormattedEmail(txtemail.Text, "Registration Successful", PopulateBody(txtName.Text, txtemail.Text, txtpassword.Text));
-                    Response.Redirect("Login.aspx");
-                }
-                else
-                    Response.Redirect("index.aspx");
-                //Utility.ShowToastrSuccess(this, "Registration Successful", "Success");
+                    try
+                    {
+                        Utility.SendHtmlFormattedEmail(txtemail.Text, "Registration Successful", PopulateBody(txtName.Text, txtemail.Text, txtpassword.Text));
+                        int i = BllNS.SetUserRegistration(registrations);
 
+
+                        if (i > 0)
+                        {
+                            if (ddlOrganization.SelectedValue == ConstString.OthersOrganisation)
+                            {
+                                BllNS.SetInsertOrganization(txtOtherOrganisation.Text, registrations.EmailId);
+                            }
+                            if (ddlDesignation.SelectedValue == ConstString.OthersDesignation)
+                            {
+                                BllNS.SetInsertDesignation(txtOtherDesignation.Text, registrations.EmailId);
+                            }
+                            Response.Redirect("Login.aspx");
+                        }
+
+
+                        else
+                        {
+                            Utility.ShowToastrError(this, "Register Not Success", "Error");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Utility.ShowToastrError(this, "Registration Not Successful. Please Try Again!!!", "Success");
+                    }
+
+                }
+                else if (radioButtonValue == ConstString.Participants)
+                {
+                    int i = BllNS.SetUserRegistration(registrations);
+
+
+                    if (i > 0)
+                    {
+                        if (ddlOrganization.SelectedValue == ConstString.OthersOrganisation)
+                        {
+                            BllNS.SetInsertOrganization(txtOtherOrganisation.Text, registrations.EmailId);
+                        }
+                        if (ddlDesignation.SelectedValue == ConstString.OthersDesignation)
+                        {
+                            BllNS.SetInsertDesignation(txtOtherDesignation.Text, registrations.EmailId);
+                        }
+                    }
+                    else
+                    {
+                        Utility.ShowToastrError(this, "Register Not Success", "Error");
+                    }
+                    Response.Redirect("../index.aspx");
+                }
+
+                Clear();
             }
             else
             {
-                Utility.ShowToastrError(this, "Register Not Success", "Error");
+                Utility.ShowToastrError(this,"Please Check Terms and Conditions","Error");
             }
-            Clear();
 
         }
         public void Clear()
@@ -92,6 +143,62 @@ namespace NationalSymposium.ns
             body = body.Replace("{EmailId}", email);
             body = body.Replace("{Password}", password);
             return body;
+        }
+
+        private bool IsPasswordValid(string password)
+        {
+            // Password should be at least 8 characters long.
+            if (password.Length < 8)
+            {
+                return false;
+            }
+
+            // Password should contain at least one uppercase letter.
+            if (!password.Any(char.IsUpper))
+            {
+                return false;
+            }
+
+            // Password should contain at least one lowercase letter.
+            if (!password.Any(char.IsLower))
+            {
+                return false;
+            }
+
+            // Password should contain at least one digit (number).
+            if (!password.Any(char.IsDigit))
+            {
+                return false;
+            }
+
+            // Add more validation rules as needed.
+
+            return true; // Password is valid.
+        }
+
+        protected void ddlOrganization_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if (ddlOrganization.SelectedValue != null && ddlOrganization.SelectedValue.Equals(txtOtherOrganisation.Text, StringComparison.OrdinalIgnoreCase) && !string.IsNullOrEmpty(txtOtherOrganisation.Text))
+            if (ddlOrganization.SelectedValue == ConstString.OthersOrganisation)
+            {
+                txtOtherOrganisation.Visible = true;
+            }
+            else
+            {
+                txtOtherOrganisation.Visible = false;
+            }
+        }
+
+        protected void ddlDesignation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlDesignation.SelectedValue == ConstString.OthersDesignation)
+            {
+                txtOtherDesignation.Visible = true;
+            }
+            else
+            {
+                txtOtherDesignation.Visible = false;
+            }
         }
     }
 }

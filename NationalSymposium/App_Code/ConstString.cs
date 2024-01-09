@@ -22,6 +22,9 @@ namespace NationalSymposium
         public static string LoginPage = @"Login.aspx";
         public static string AuthUserPage = "~/User_Page.aspx";
         public static string UserPage = "User_Page.aspx";
+        public static string DashboardPage = "Admin/Dashboard.aspx";
         public static string AdminPage = "Admin_Page.aspx";
+        public static string OthersOrganisation = "5";
+        public static string OthersDesignation = "9";
     }
 }

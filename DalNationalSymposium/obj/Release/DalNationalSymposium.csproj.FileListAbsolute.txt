@@ -16,3 +16,14 @@ C:\Users\Shristi\Desktop\NJJM 22-12-2023\NationalSymposium\DalNationalSymposium\
 C:\Users\Shristi\Desktop\NJJM 22-12-2023\NationalSymposium\DalNationalSymposium\obj\Release\DalNationalSymposium.csproj.CopyComplete
 C:\Users\Shristi\Desktop\NJJM 22-12-2023\NationalSymposium\DalNationalSymposium\obj\Release\DalNationalSymposium.dll
 C:\Users\Shristi\Desktop\NJJM 22-12-2023\NationalSymposium\DalNationalSymposium\obj\Release\DalNationalSymposium.pdb
+E:\Project\NSSWCI_UPDATED\DalNationalSymposium\bin\Release\DalNationalSymposium.dll
+E:\Project\NSSWCI_UPDATED\DalNationalSymposium\bin\Release\DalNationalSymposium.pdb
+E:\Project\NSSWCI_UPDATED\DalNationalSymposium\bin\Release\ModelNationalSymposium.dll
+E:\Project\NSSWCI_UPDATED\DalNationalSymposium\bin\Release\Newtonsoft.Json.dll
+E:\Project\NSSWCI_UPDATED\DalNationalSymposium\bin\Release\ModelNationalSymposium.pdb
+E:\Project\NSSWCI_UPDATED\DalNationalSymposium\bin\Release\Newtonsoft.Json.xml
+E:\Project\NSSWCI_UPDATED\DalNationalSymposium\obj\Release\DalNationalSymposium.csproj.AssemblyReference.cache
+E:\Project\NSSWCI_UPDATED\DalNationalSymposium\obj\Release\DalNationalSymposium.csproj.CoreCompileInputs.cache
+E:\Project\NSSWCI_UPDATED\DalNationalSymposium\obj\Release\DalNationalSymposium.csproj.CopyComplete
+E:\Project\NSSWCI_UPDATED\DalNationalSymposium\obj\Release\DalNationalSymposium.dll
+E:\Project\NSSWCI_UPDATED\DalNationalSymposium\obj\Release\DalNationalSymposium.pdb
