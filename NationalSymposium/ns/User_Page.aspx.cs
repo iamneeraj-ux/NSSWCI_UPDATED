@@ -44,7 +44,7 @@ namespace NSSWC
                 }
                 if (CheckAuthentication())
                 {
-                    sUser.InnerText = ul.EmailId;
+                    sUser.InnerText = ul.Name;
 
                 }
             }

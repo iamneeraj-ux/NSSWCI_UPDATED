@@ -42,7 +42,7 @@ namespace NSSWC
                 }
                 else if (ul.RoleId == ConstString.User && rememberme.Checked == true)
                 {
-                    HttpCookie co = new HttpCookie(ul.EmailId, ul.HashPassword);
+                    HttpCookie co = new HttpCookie(ul.EmailId, password);
                     co.Expires = DateTime.Now.AddDays(5);
                     Response.Cookies.Add(co);
                     //Session["username"] = txtUserName.Text;

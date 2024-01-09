@@ -1957,8 +1957,8 @@
     <Content Include="images\user.png" />
     <Content Include="ns\Admin_Page.aspx" />
     <Content Include="ns\a_faqs.aspx" />
+    <Content Include="ns\faq.aspx" />
     <Content Include="ns\faq.html" />
-    <Content Include="ns\faqs.aspx" />
     <Content Include="ns\forgot_password.aspx" />
     <Content Include="index.aspx" />
     <Content Include="ns\Login.aspx" />
@@ -2033,6 +2033,7 @@
     <Content Include="Content\AdminLte310\plugins\summernote\summernote.min.js.map" />
     <Content Include="Content\AdminLte310\plugins\toastr\toastr.js.map" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="ns\submission-guidelines.aspx" />
     <Content Include="ns\submission-guidelines.html" />
     <Content Include="ns\User_Page.aspx" />
     <Content Include="register_success.html" />
@@ -2068,12 +2069,12 @@
     <Compile Include="ns\a_faqs.aspx.designer.cs">
       <DependentUpon>a_faqs.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ns\faqs.aspx.cs">
-      <DependentUpon>faqs.aspx</DependentUpon>
+    <Compile Include="ns\faq.aspx.cs">
+      <DependentUpon>faq.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ns\faqs.aspx.designer.cs">
-      <DependentUpon>faqs.aspx</DependentUpon>
+    <Compile Include="ns\faq.aspx.designer.cs">
+      <DependentUpon>faq.aspx</DependentUpon>
     </Compile>
     <Compile Include="ns\forgot_password.aspx.cs">
       <DependentUpon>forgot_password.aspx</DependentUpon>
@@ -2116,6 +2117,13 @@
     </Compile>
     <Compile Include="ns\reset_password.aspx.designer.cs">
       <DependentUpon>reset_password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ns\submission-guidelines.aspx.cs">
+      <DependentUpon>submission-guidelines.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ns\submission-guidelines.aspx.designer.cs">
+      <DependentUpon>submission-guidelines.aspx</DependentUpon>
     </Compile>
     <Compile Include="ns\User_Page.aspx.cs">
       <DependentUpon>User_Page.aspx</DependentUpon>

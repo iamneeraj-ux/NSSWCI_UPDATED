@@ -116,12 +116,12 @@
                     <div class="row">
                         <div class="col-12 col-md-6 col-lg-6"> 
                             <div class="card-wrap card-wrap-sm card-wrap-guide mb-4">
-                                <h4><a href="submission-guidelines.html" target="_blank">Submission Guidelines <i class="fa fa-file" aria-hidden="true"></i></a></h4>
+                                <h4><a href="submission-guidelines.aspx" target="_blank">Submission Guidelines <i class="fa fa-file" aria-hidden="true"></i></a></h4>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 col-lg-6"> 
                             <div class="card-wrap card-wrap-sm card-wrap-faq mb-4">
-                                <h4> <a href="faq.html" target="_blank">FAQs<i class="fa fa-question-circle" aria-hidden="true"></i></a></h4>
+                                <h4> <a href="faq.aspx" target="_blank">FAQs<i class="fa fa-question-circle" aria-hidden="true"></i></a></h4>
                                
 
                           </div>
