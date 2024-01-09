@@ -108,7 +108,7 @@ namespace BllNationalSymposium
                 ul.Id = Convert.ToInt32(dt.Rows[i]["Id"]);
                 ul.Name = Convert.ToString(dt.Rows[i]["Name"]);
                 ul.EmailId = Convert.ToString(dt.Rows[i]["EmailId"]);
-                ul.Organization = Convert.ToString(dt.Rows[i]["Organization"]);
+                //ul.Organization = Convert.ToString(dt.Rows[i]["Organization"]);
                 ul.HashPassword = Convert.ToString(dt.Rows[i]["HashPassword"]);
                 ul.RoleId = Convert.ToInt32(dt.Rows[i]["RoleId"]);
                 //ul.UserRoles = BllNS.GetRolesById(ul.RoleId);
@@ -126,10 +126,10 @@ namespace BllNationalSymposium
             if (dt.Rows.Count == 0)
                 return null;
             UserLogin ul = new UserLogin();
-            //ul.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
+            ul.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
             ul.Name = Convert.ToString(dt.Rows[0]["Name"]);
             ul.EmailId = Convert.ToString(dt.Rows[0]["EmailId"]);
-            ul.Organization = Convert.ToString(dt.Rows[0]["Organization"]);
+            //ul.Organization = Convert.ToString(dt.Rows[0]["Organization"]);
             ul.HashPassword = Convert.ToString(dt.Rows[0]["HashPassword"]);
             ul.RoleId = Convert.ToInt32(dt.Rows[0]["RoleId"]);
             //ul.UserRoles = BllNS.GetRolesById(ul.RoleId);

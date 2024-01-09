@@ -15,7 +15,7 @@ using ModelNationalSymposium;
 using NationalSymposium;
 
 namespace NSSWC
-{   
+{
     public partial class User_Page : System.Web.UI.Page
     {
         UserLogin ul;
@@ -45,6 +45,7 @@ namespace NSSWC
                 if (CheckAuthentication())
                 {
                     sUser.InnerText = ul.Name;
+
 
                 }
             }
@@ -94,20 +95,41 @@ namespace NSSWC
 
                     // Execute the command and read data
                     SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
+                    if (reader.Read())
                     {
                         // Populate TextBox
                         txtName.Text = reader["Name"].ToString();
-                        //string filepath = reader["FilePath"].ToString();
 
+                        //Check if the columns exist in the result set
+                        bool hasMobileNo = reader.GetOrdinal("MobileNo") != -1;
+                        bool hasOrganization = reader.GetOrdinal("Organization") != -1;
+                        bool hasDesignation = reader.GetOrdinal("Designation") != -1;
+                        bool hasState = reader.GetOrdinal("State") != -1;
+
+                        // Check if file-related columns exist
+                        bool hasFileName = reader.GetOrdinal("FileName") != -1;
+                        bool hasFilePath = reader.GetOrdinal("FilePath") != -1;
+
+                        // Check if there are file details based on the count condition
+                        if (hasFileName && hasFilePath)
+                        {
+                            string FileName = reader["FileName"].ToString();
+                            string FilePath = reader["FilePath"].ToString();
+                            dViewFile.InnerHtml = $"<a href=\"{FilePath}\">{FileName}</a>";
+                        }
+                        else
+                        {
+                            // File-related columns do not exist or are null
+                            dViewFile.InnerHtml = "File not available. <a href='#'>Upload File</a>";
+                        }
 
                         // Populate DropDownList
-                        ddlDesignation.SelectedValue = reader["Designation"].ToString();
-                        ddlStates.SelectedValue = reader["State"].ToString();
-                        ddlOrganization.SelectedValue = reader["Organization"].ToString();
-                        txtMobile.Text = reader["MobileNo"].ToString();
-                        //dViewFile.InnerHtml = $"<a href=\"../Upload/{FileUpload1.FileName}\">View File</a>";
+                        if (hasDesignation) ddlDesignation.SelectedValue = reader["Designation"].ToString();
+                        if (hasState) ddlStates.SelectedValue = reader["State"].ToString();
+                        if (hasOrganization) ddlOrganization.SelectedValue = reader["Organization"].ToString();
+                        if (hasMobileNo) txtMobile.Text = reader["MobileNo"].ToString();
                     }
+
                     txtemail.Text = ul.EmailId;
                     // Close the reader and connection
                     reader.Close();
@@ -149,72 +171,108 @@ namespace NSSWC
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            //SqlConnection conn = new SqlConnection("Data Source=10.22.3.161;User Id=adg;Password=adg;Initial Catalog=NSSWCI;Integrated Security=false;");
+            
             string connectionString = ConfigurationManager.ConnectionStrings["NSSWCIConnectionString"].ConnectionString;
 
-            
+            try
+            {
                 if (fuUpload.HasFile)
                 {
-                int maxFileSize = 5 * 1024 * 1024; // 5MB in bytes
-                // Get the file extension
-                string fileExtension = Path.GetExtension(fuUpload.FileName).ToLower();
+                    int maxFileSize = 5 * 1024 * 1024; // 5MB in bytes
+                    string fileExtension = Path.GetExtension(fuUpload.FileName).ToLower();
+                    string[] allowedMimeTypes = { ".pptx", ".pptm", ".ppt" };
 
-                // Get the MIME type based on the file extension
-                //string mimeType = MimeMapping.GetMimeMapping(FileUpload1.FileName);
+                    HttpPostedFile uploadedFile = fuUpload.PostedFile;
 
-                // Specify allowed MIME types (e.g., "image/jpeg", "image/png", "application/pdf")
-                string[] allowedMimeTypes = { ".pptx", ".pptm", ".ppt" };
+                    if (Array.IndexOf(allowedMimeTypes, fileExtension) != -1 && uploadedFile.ContentLength <= maxFileSize)
+                    {
+                        // Generate a unique file name
+                        string uniqueFileName = $"{Guid.NewGuid().ToString()}_{fuUpload.FileName}";
 
-                HttpPostedFile uploadedFile = fuUpload.PostedFile;
+                        // Set the upload folder path
+                        string uploadFolder = Server.MapPath("~/Upload");
+                        string filePath = Path.Combine(uploadFolder, uniqueFileName);
 
-                // Check if the MIME type is allowed
-                if (Array.IndexOf(allowedMimeTypes, fileExtension) != -1 && uploadedFile.ContentLength <= maxFileSize)
-                {
-                    // Process the file (e.g., save it to the server)
-                    string filePath = Server.MapPath("~/Upload") + "/" + fuUpload.FileName;
-                    fuUpload.SaveAs(filePath);
-                    using (SqlConnection conn = new SqlConnection(connectionString))
-                    { 
-                        conn.Open();
-                    SqlCommand command = new SqlCommand("Sp_FileDetails", conn);
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@pEmailId", ul.EmailId);
-                    command.Parameters.AddWithValue("@pFileName", fuUpload.FileName);
-                    command.Parameters.AddWithValue("@pFilePath", filePath);
-                    command.Parameters.AddWithValue("@pName", txtName.Text);
-                    command.Parameters.AddWithValue("@pState", ddlStates.SelectedValue);
-                    command.Parameters.AddWithValue("@pDesignation", ddlDesignation.SelectedValue);
-                    command.Parameters.AddWithValue("@pOrganization", ddlOrganization.SelectedValue);
-                    command.Parameters.AddWithValue("@pMobileNo", txtMobile.Text);
-                    command.Parameters.AddWithValue("@pCreatedBy", Utility.GetIpAddress());
-                    command.ExecuteNonQuery();
-                        dViewFile.InnerHtml = $"<a href=\"../Upload/{fuUpload.FileName}\">View File</a>";
-                        //hypDownload.NavigateUrl = "" + FileUpload1.FileName;
-                        //hypDownload.Visible = true;
+                        // Save the file to the server
+                        fuUpload.SaveAs(filePath);
 
-                        // Show file in iframe
-                        //I1.Attributes["src"] = ResolveUrl("~/Upload/") + FileUpload1.FileName;
+                        // Perform database operations in a transaction
+                        using (SqlConnection conn = new SqlConnection(connectionString))
+                        {
+                            conn.Open();
+                            SqlTransaction transaction = conn.BeginTransaction();
 
+                            try
+                            {
+                                // Insert or update database based on file existence
+                                UpdateDatabase(ul.EmailId, fuUpload.FileName, filePath, txtName.Text, ddlStates.SelectedValue,
+                                    ddlDesignation.SelectedValue, ddlOrganization.SelectedValue, txtMobile.Text,
+                                    Utility.GetIpAddress(), transaction);
+
+                                // Commit the transaction if everything is successful
+                                transaction.Commit();
+
+                                // Display a success message
+                                Utility.ShowToastrSuccess(this, "File uploaded successfully!", "Success");
+                            }
+                            catch (Exception ex)
+                            {
+                                // Rollback the transaction in case of an exception
+                                transaction.Rollback();
+
+                                // Display an error message
+                                Utility.ShowToastrError(this, "An error occurred while processing the file.", "Error");
+                            }
+                        }
                     }
-
-                    // Display a success message
-                    // lblmessage.Text = "File uploaded successfully!";
-                    Utility.ShowToastrSuccess(this, "File uploaded successfully!", "Success");
+                    else
+                    {
+                        // Display an error message for unsupported MIME type or file size
+                        Utility.ShowToastrError(this, "Unsupported file format or file size. Please upload a file with ppt format and within 5MB.", "Error");
+                    }
                 }
                 else
                 {
-                    // Display an error message for unsupported MIME type
-                    // lblmessage.Text = "Unsupported file format. Please upload a file with ppt format";
-                    Utility.ShowToastrError(this, "Unsupported file format. Please upload a file with ppt format", "Error");
+                    // Display a message if no file is selected
+                    Utility.ShowToastrWarning(this, "Please select a file to upload.", "Warning");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                // Display an error message if no file is selected
-                //lblmessage.Text = "Please select a file to upload.";
-                Utility.ShowToastrWarning(this, "Please select a file to upload.", "Warning");
+                // Handle other exceptions if needed
+                Utility.ShowToastrError(this, "An unexpected error occurred.", "Error");
+            }
+
+            // Separate method to handle database operations
+          
+
+
+
+        }
+
+
+        private void UpdateDatabase(string emailId, string fileName, string filePath, string name, string state, string designation,
+        string organization, string mobileNo, string createdBy, SqlTransaction transaction)
+        {
+            using (SqlCommand command = new SqlCommand("Sp_FileDetails", transaction.Connection, transaction))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@pEmailId", emailId);
+                command.Parameters.AddWithValue("@pFileName", fileName);
+                command.Parameters.AddWithValue("@pFilePath", filePath);
+                command.Parameters.AddWithValue("@pName", name);
+                command.Parameters.AddWithValue("@pState", state);
+                command.Parameters.AddWithValue("@pDesignation", designation);
+                command.Parameters.AddWithValue("@pOrganization", organization);
+                command.Parameters.AddWithValue("@pMobileNo", mobileNo);
+                command.Parameters.AddWithValue("@pCreatedBy", createdBy);
+
+                command.ExecuteNonQuery();
             }
         }
+
+
+
+
     }
-    
 }

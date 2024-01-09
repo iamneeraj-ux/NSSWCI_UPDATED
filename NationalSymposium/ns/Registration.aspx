@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link href="../Styles/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" href="../Styles/bootstrap.min.css" /> 
     <link rel="stylesheet" href="../Styles/main.css" />
     <link href="../Content/themes/base/all.css" rel="stylesheet" />
@@ -15,6 +15,49 @@
     <script src="../Content/AdminLte310/plugins/toastr/toastr.min.js"></script>
     <link href="../Content/AdminLte310/plugins/toastr/toastr.min.css" rel="stylesheet" />
     <title>Jal Jeevan Mission</title>
+     <script type="text/javascript">
+         function validatePassword() {
+             var password = document.getElementById("txtpassword").value;
+            
+
+             // Check if passwords match
+             
+             // Check if the password meets the minimum length requirement
+             if (password.length < 8) {
+                 alert("Password must be at least 8 characters long");
+                 return false;
+             }
+
+             // Check for at least one uppercase letter
+             if (!/[A-Z]/.test(password)) {
+                 alert("Password must contain at least one uppercase letter");
+                 return false;
+             }
+
+             // Check for at least one lowercase letter
+             if (!/[a-z]/.test(password)) {
+                 alert("Password must contain at least one lowercase letter");
+                 return false;
+             }
+
+             // Check for at least one digit
+             if (!/\d/.test(password)) {
+                 alert("Password must contain at least one digit");
+                 return false;
+             }
+
+             // Check for at least one special character
+             if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+                 alert("Password must contain at least one special character");
+                 return false;
+             }
+
+             // Add more validation rules as needed
+
+             return true; // Password is valid
+         }
+
+     </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -22,7 +65,7 @@
             <div class="container">
                 <div class="row justify-content-center align-items-lg-center mobile--bg py-2 py-md-3">
                     <div class="col-8 col-md-6 col-lg-5">
-                        <a href="index.html" class="logo">
+                        <a href="../index.aspx" class="logo">
                             <img src="../images/logo.png" alt="logo"></a>
                     </div>
                     <div class="col-4 col-md-6 col-lg-7 text-end">
@@ -43,7 +86,7 @@
                     <div class="col-11 col-md-8 col-lg-6">
                         <ul>
                             <li>
-                                <span>Date: </span><small>12/12/2023</small>
+                                <span>Date: </span><small>18/12/2023</small>
                             </li>
                             <li>
                                 <span>Venue: </span><strong>Auditorium, SPM Niwas, Kolkata</strong>
@@ -64,7 +107,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-12 text-center">
-                            <h4>Registraion Form </h4>
+                            <h4>Registration Form </h4>
                             <h2>Welcome, User!</h2>
                         </div>
                         <div class="col-12 col-md-6 col-lg-6">
@@ -114,16 +157,19 @@
                                         <div class="col col-md-6">
                                             <div class="input-container">
                                                 <i class="fa fa-key" aria-hidden="true"></i>
-                                                <asp:TextBox ID="txtpassword" runat="server" EnableTheming="False" placeholder="Enter Password" TextMode="Password" class="form-control"></asp:TextBox>
+                                                <asp:TextBox ID="txtpassword"  runat="server" EnableTheming="False"  placeholder="Enter Password" TextMode="Password" class="form-control"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ControlToValidate="txtpassword" runat="server" class="form-text" ErrorMessage="Please enter password"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <div class="col col-md-6">
                                             <div class="input-container">
                                                 <i class="fa fa-briefcase" aria-hidden="true"></i>
-                                                <asp:DropDownList ID="ddlDesignation" runat="server" class="form-select" placeholder="Select Designation">
+                                                <asp:DropDownList ID="ddlDesignation" runat="server" class="form-select" placeholder="Select Designation" AutoPostBack="true" OnSelectedIndexChanged="ddlDesignation_SelectedIndexChanged">
                                                 </asp:DropDownList>
                                                 <asp:RequiredFieldValidator ID="rfvDesignation" runat="server" ErrorMessage="Please Select Designation" ControlToValidate="ddlDesignation" InitialValue="0"></asp:RequiredFieldValidator>
+                                            </div>
+                                            <div class="input-container">
+                                                <asp:TextBox CssClass="form-control w-100 mb-4" ID="txtOtherDesignation" runat="server" Width="100px" Visible="false" placeholder="Please enter Designation"  ></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
@@ -139,15 +185,20 @@
                                         <div class="col col-md-6">
                                             <div class="input-container">
                                                 <i class="fa fa-sitemap" aria-hidden="true"></i>
-                                                <asp:DropDownList ID="ddlOrganization" runat="server" class="form-select">
+                                                <asp:DropDownList ID="ddlOrganization" runat="server" class="form-select" AutoPostBack="true" OnSelectedIndexChanged="ddlOrganization_SelectedIndexChanged">
                                                     <asp:ListItem Text="Select Organization" Value="" />
                                                 </asp:DropDownList>
                                                 <asp:RequiredFieldValidator ID="rfvOrganization" runat="server" ErrorMessage="Please Select Organization" ControlToValidate="ddlOrganization" InitialValue="0"></asp:RequiredFieldValidator>
                                             </div>
+                                            
+                                                 <div class="input-container mb-4">
+                                                    <asp:TextBox CssClass="form-control w-100 " ID="txtOtherOrganisation" runat="server" Width="100px" Visible="false" placeholder="Please enter Organization"></asp:TextBox>
+                                                     <%--<span style="color:#FF0000; font-style: italic; font-size: 12px; margin-top: 6px; display:block; ">  <sup style="display: inline-block;vertical-align: middle;font-size: 12px;">*</sup>Please do'nt use abbreviations.  </span>--%>
+                                                </div>
                                         </div>
                                     </div>
-
-                                    <div class="row">
+                                                                      
+                                        <div class="row">
                                         <div class="col col-md-12">
                                             <div class="remember-wrap text-center">
                                                 Already have account?  <a href="Login.aspx" class="remember-btn">Login</a>
@@ -155,10 +206,11 @@
 
                                             <div class="text-center">
                                                 <div class="mb-2 form-check" style="display: inline-block;">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                   <asp:CheckBox ID="flexCheckDefault" runat="server" Text="I agree with <a href='TermCondition.aspx' target='_blank'>terms and conditions</a> "  />
+                                                    <%--<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                                     <label class="form-check-label" for="flexCheckDefault">
                                                         I agree with terms and conditions
-                                                    </label>
+                                                    </label>--%>
                                                 </div>
                                             </div>
                                         </div>
@@ -174,16 +226,26 @@
 
         </div>
 
-        <footer class="footer text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <p>
-                            &copy; Copyrights 2023, Lead. All right are reserved.
-                        </p>
+        <footer class="footer">
+           <div class="container">
+               <div class="row">
+                   <div class="col-12 col-sm-6 ">
+                       <p class="copy-right">
+                           &copy; Copyrights 2023, Lead. All right are reserved.
+                       </p>
+                   </div>
+                    <div class="col-12 col-sm-6">
+                        <ul class="footer-nav"> 
+                            <li> 
+                               <a href="AboutUs.aspx"> About us </a>
+                           </li>
+                             <li> 
+                               <a href="ContactUs.aspx"> Contact us </a>
+                           </li>
+                        </ul>
                     </div>
-                </div>
-            </div>
+               </div>
+           </div>
         </footer>
 
 

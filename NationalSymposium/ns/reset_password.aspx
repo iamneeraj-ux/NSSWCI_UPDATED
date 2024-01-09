@@ -48,7 +48,7 @@
             <div class="col-11 col-md-8 col-lg-6"> 
                 <ul>
                     <li>
-                        <span>Date: </span> <small>12/12/2023</small>
+                        <span>Date: </span> <small>18/01/2024</small>
                     </li>
                     <li>
                         <span>Venue: </span> <strong>Auditorium, SPM Niwas, Kolkata</strong>
@@ -106,17 +106,27 @@
             </section>
 
         </div>
-        <footer class="footer text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <p>
-                            &copy; Copyrights 2023, Lead. All right are reserved.
-                        </p>
-                    </div>
-                </div>
+        <footer class="footer">
+   <div class="container">
+       <div class="row">
+           <div class="col-12 col-sm-6 ">
+               <p class="copy-right">
+                   &copy; Copyrights 2023, Lead. All right are reserved.
+               </p>
+           </div>
+            <div class="col-12 col-sm-6">
+                <ul class="footer-nav"> 
+                    <li>
+                       <a href="about.aspx"> About  </a>
+                   </li>
+                     <li>
+                       <a href="contact.aspx"> Contact  </a>
+                   </li>
+                </ul>
             </div>
-        </footer>
+       </div>
+   </div>
+</footer>
     </form>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
 </body>

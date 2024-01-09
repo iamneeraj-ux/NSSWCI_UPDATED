@@ -20,3 +20,16 @@ C:\Users\Shristi\Desktop\NJJM 22-12-2023\NationalSymposium\BllNationalSymposium\
 C:\Users\Shristi\Desktop\NJJM 22-12-2023\NationalSymposium\BllNationalSymposium\obj\Release\BllNationalSymposium.csproj.CopyComplete
 C:\Users\Shristi\Desktop\NJJM 22-12-2023\NationalSymposium\BllNationalSymposium\obj\Release\BllNationalSymposium.dll
 C:\Users\Shristi\Desktop\NJJM 22-12-2023\NationalSymposium\BllNationalSymposium\obj\Release\BllNationalSymposium.pdb
+E:\Project\NSSWCI_UPDATED\BllNationalSymposium\bin\Release\BllNationalSymposium.dll
+E:\Project\NSSWCI_UPDATED\BllNationalSymposium\bin\Release\BllNationalSymposium.pdb
+E:\Project\NSSWCI_UPDATED\BllNationalSymposium\bin\Release\DalNationalSymposium.dll
+E:\Project\NSSWCI_UPDATED\BllNationalSymposium\bin\Release\ModelNationalSymposium.dll
+E:\Project\NSSWCI_UPDATED\BllNationalSymposium\bin\Release\Newtonsoft.Json.dll
+E:\Project\NSSWCI_UPDATED\BllNationalSymposium\bin\Release\DalNationalSymposium.pdb
+E:\Project\NSSWCI_UPDATED\BllNationalSymposium\bin\Release\ModelNationalSymposium.pdb
+E:\Project\NSSWCI_UPDATED\BllNationalSymposium\bin\Release\Newtonsoft.Json.xml
+E:\Project\NSSWCI_UPDATED\BllNationalSymposium\obj\Release\BllNationalSymposium.csproj.AssemblyReference.cache
+E:\Project\NSSWCI_UPDATED\BllNationalSymposium\obj\Release\BllNationalSymposium.csproj.CoreCompileInputs.cache
+E:\Project\NSSWCI_UPDATED\BllNationalSymposium\obj\Release\BllNationalSymposium.csproj.CopyComplete
+E:\Project\NSSWCI_UPDATED\BllNationalSymposium\obj\Release\BllNationalSymposium.dll
+E:\Project\NSSWCI_UPDATED\BllNationalSymposium\obj\Release\BllNationalSymposium.pdb

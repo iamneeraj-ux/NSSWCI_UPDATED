@@ -1,15 +1,15 @@
-﻿using ModelNationalSymposium;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ModelNationalSymposium;
 
 namespace NationalSymposium.ns
 {
-    public partial class faq : System.Web.UI.Page
+    public partial class FAQ : System.Web.UI.Page
     {
         UserLogin ul;
         protected void Page_Load(object sender, EventArgs e)
@@ -39,6 +39,7 @@ namespace NationalSymposium.ns
                 {
                     sUser.InnerText = ul.Name;
 
+
                 }
             }
             catch (Exception ex)
@@ -46,11 +47,10 @@ namespace NationalSymposium.ns
                 Response.Redirect(ConstString.LoginPage);
             }
         }
-
         public void BindData()
         {
-
         }
+
         public bool CheckAuthentication()
         {
             if (ul != null)

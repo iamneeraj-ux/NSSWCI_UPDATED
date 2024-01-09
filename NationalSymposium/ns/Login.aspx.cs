@@ -31,14 +31,14 @@ namespace NSSWC
         {
             string username = txtUserName.Text.Trim();
             string password = txtPassword.Text.Trim();
-            UserLogin ul = BllNS.GetUserDetails(username,password);
+            UserLogin ul = BllNS.GetUserDetails(username, password);
             if (ul != null)
             {
                 Session.Add(ConstString.SessionUser, ul);
                 if (ul.RoleId == ConstString.Admin)
                 {
-                   // Session["username"] = txtUserName.Text;
-                    Response.Redirect(ConstString.AdminPage, false);
+                    // Session["username"] = txtUserName.Text;
+                    Response.Redirect(ConstString.DashboardPage, false);
                 }
                 else if (ul.RoleId == ConstString.User && rememberme.Checked == true)
                 {
