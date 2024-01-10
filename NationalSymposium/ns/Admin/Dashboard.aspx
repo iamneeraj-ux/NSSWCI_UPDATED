@@ -24,7 +24,7 @@
                             <img src="../../images/logo.png" alt="logo" class="img-fluid"></a>
                     </div>
                     <div class="col-6 col-sm-6 col-md-6 col-lg-7">
-                        <h2 class="dash-main-title text-center">National Symposium on Safe Water &amp; Chlorination Initiatives</h2>
+                        <h2 class="dash-main-title text-center">National Symposium on Safe Water &amp; Disinfection Chlorination Initiatives</h2>
                     </div>
                     <div class="col-1 col-sm-2 col-md-2 col-lg-2 text-end">
                         <span>

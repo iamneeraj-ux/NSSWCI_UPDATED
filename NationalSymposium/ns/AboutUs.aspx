@@ -11,7 +11,7 @@
     <link href="../Styles/main.css" rel="stylesheet" />     
     <title>Jal Jeevan Mission</title>
 </head>
-     
+
 <body>
     <header class="header">
         <div class="container">
@@ -34,9 +34,9 @@
         <section class="banner">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-12 col-lg-12 text-center">
-                    <h2>National Symposium on Safe Water &amp; Chlorination Initiatives</h2>
+                    <h2>National Symposium on Safe Water &amp; Disinfection Chlorination Initiatives</h2>
                 </div>
-                <div class="col-12 col-md-8 col-lg-6"> 
+                <div class="col-12 col-md-8 col-lg-6 text-center"> 
                     <ul>
                         <li>
                             <span>Date: </span> <small>18/01/2024</small>

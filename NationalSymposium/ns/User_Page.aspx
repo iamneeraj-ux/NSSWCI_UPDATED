@@ -25,8 +25,8 @@
         <header class="header">
     <div class="container">
         <div class="row justify-content-center align-items-lg-center mobile--bg py-2 py-md-3">
-            <div class="col-8 col-md-6 col-lg-5">
-                <a href="index.aspx" class="logo"><img src="../images/logo.png" alt="logo"/></a> 
+            <div class="col-8 col-md-6 col-lg-5"> 
+                <a href="../index.aspx" class="logo"><img src="../images/logo.png" alt="logo"/></a> 
             </div> 
             <div class="col-4 col-md-6 col-lg-7 text-end"> 
                 <div class="top-sidebar">
@@ -61,9 +61,9 @@
     <section class="banner">
         <div class="row justify-content-center">
             <div class="col-11 col-md-12 col-lg-12 text-center">
-                <h2>National Symposium on Safe Water &amp; Chlorination Initiatives</h2>
+                <h2>National Symposium on Safe Water &amp; Disinfection Chlorination Initiatives</h2>
             </div>
-            <div class="col-11 col-md-8 col-lg-6">  
+            <div class="col-11 col-md-8 col-lg-6 text-center">  
                 <ul>
                     <li>
                         <span>Date: </span> <small>18/01/2024</small>
@@ -87,10 +87,10 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12  col-md-12 col-lg-12 text-center">  
-                    <p>Welcome to the National Symposium on Safe Water and Chlorination Initiatives! Join us as we gather experts, officials, and organizations
+                    <p>Welcome to the National Symposium on Safe Water and Disinfection Chlorination Initiatives! Join us as we gather experts, officials, and organizations
                         to share insights and strategies for ensuring clean and safe water</p>
                 </div>
-                <div class="col-12 col-md-6 col-lg-6"> 
+                <div class="col-12 col-md-6 col-lg-6 "> 
                     <div class="card-wrap card-wrap-home ">
                         <h3 class="text-center">Objectives of the Symposium </h3>
                         <ul>
@@ -132,7 +132,7 @@
                     <div class="row">
                         <div class="col-12 col-md-6 col-lg-6"> 
                             <div class="card-wrap card-wrap-sm">
-                                <h4> <a href="../Download/JJM_Template.pptx" target="_blank">Download Presentation <i class="fa fa-download" aria-hidden="true"></i></a></h4>
+                                <h4> <a href="../Download/JJM_Template.pptx" target="_blank">Download template for Presentation <i class="fa fa-download" aria-hidden="true"></i></a></h4>
                                 
                             </div>
                         </div>

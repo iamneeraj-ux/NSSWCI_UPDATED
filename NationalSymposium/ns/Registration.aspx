@@ -81,9 +81,9 @@
             <section class="banner">
                 <div class="row justify-content-center">
                     <div class="col-11 col-md-12 col-lg-12 text-center">
-                        <h2>National Symposium on Safe Water &amp; Chlorination Initiatives</h2>
+                        <h2>National Symposium on Safe Water &amp; Disinfection Disinfection Chlorination Initiatives</h2>
                     </div>
-                    <div class="col-11 col-md-8 col-lg-6">
+                    <div class="col-11 col-md-8 col-lg-6 text-center">
                         <ul>
                             <li>
                                 <span>Date: </span><small>18/12/2023</small>
@@ -144,43 +144,27 @@
 
                                             </div>
                                         </div>
+
                                         <div class="col col-md-6">
                                             <div class="input-container">
                                                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                                                <asp:TextBox ID="txtemail" class="form-control" placeholder="Email Id" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txtemail" class="form-control" placeholder="Enter Email Id" runat="server"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ControlToValidate="txtemail" runat="server" class="form-text" Text="Please enter Email"></asp:RequiredFieldValidator>
 
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col col-md-6">
-                                            <div class="input-container">
-                                                <i class="fa fa-key" aria-hidden="true"></i>
-                                                <asp:TextBox ID="txtpassword"  runat="server" EnableTheming="False"  placeholder="Enter Password" TextMode="Password" class="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ControlToValidate="txtpassword" runat="server" class="form-text" ErrorMessage="Please enter password"></asp:RequiredFieldValidator>
-                                            </div>
-                                        </div>
+
+                                    <div class="row"> 
                                         <div class="col col-md-6">
                                             <div class="input-container">
                                                 <i class="fa fa-briefcase" aria-hidden="true"></i>
                                                 <asp:DropDownList ID="ddlDesignation" runat="server" class="form-select" placeholder="Select Designation" AutoPostBack="true" OnSelectedIndexChanged="ddlDesignation_SelectedIndexChanged">
                                                 </asp:DropDownList>
-                                                <asp:RequiredFieldValidator ID="rfvDesignation" runat="server" ErrorMessage="Please Select Designation" ControlToValidate="ddlDesignation" InitialValue="0"></asp:RequiredFieldValidator>
-                                            </div>
-                                            <div class="input-container">
+                                                
+                                                <asp:RequiredFieldValidator ID="rfvDesignation" runat="server" ErrorMessage="Please Select Designation" ControlToValidate="ddlDesignation" InitialValue="0" CssClass="form-text"></asp:RequiredFieldValidator>
                                                 <asp:TextBox CssClass="form-control w-100 mb-4" ID="txtOtherDesignation" runat="server" Width="100px" Visible="false" placeholder="Please enter Designation"  ></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col col-md-6">
-                                            <div class="input-container">
-                                                <i class="fa fa-mobile" aria-hidden="true"></i>
-                                                <asp:TextBox ID="txtMobile" runat="server" class="form-control" placeholder="Enter Mobile" TextMode="Phone"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ControlToValidate="txtMobile" runat="server" Text="Please enter Mobile Number" class="form-text"></asp:RequiredFieldValidator>
-                                                <asp:RegularExpressionValidator ID="revMobile" runat="server" ErrorMessage="Mobile No should 10 digit" ControlToValidate="txtMobile" ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
-                                            </div>
+                                            </div> 
                                         </div>
                                         <div class="col col-md-6">
                                             <div class="input-container">
@@ -188,17 +172,40 @@
                                                 <asp:DropDownList ID="ddlOrganization" runat="server" class="form-select" AutoPostBack="true" OnSelectedIndexChanged="ddlOrganization_SelectedIndexChanged">
                                                     <asp:ListItem Text="Select Organization" Value="" />
                                                 </asp:DropDownList>
-                                                <asp:RequiredFieldValidator ID="rfvOrganization" runat="server" ErrorMessage="Please Select Organization" ControlToValidate="ddlOrganization" InitialValue="0"></asp:RequiredFieldValidator>
+                                                
+                                                <asp:RequiredFieldValidator ID="rfvOrganization" runat="server" ErrorMessage="Please Select Organization" ControlToValidate="ddlOrganization" InitialValue="0" CssClass="form-text"></asp:RequiredFieldValidator>
+
+                                                <asp:TextBox CssClass="form-control w-100 mb-4" ID="txtOtherOrganisation" runat="server" Width="100px" Visible="false" placeholder="Please enter Organization"></asp:TextBox>
+<%--<span style="color:#FF0000; font-style: italic; font-size: 12px; margin-top: 6px; display:block; ">  <sup style="display: inline-block;vertical-align: middle;font-size: 12px;">*</sup>Please do'nt use abbreviations.  </span>--%>
                                             </div>
-                                            
-                                                 <div class="input-container mb-4">
-                                                    <asp:TextBox CssClass="form-control w-100 " ID="txtOtherOrganisation" runat="server" Width="100px" Visible="false" placeholder="Please enter Organization"></asp:TextBox>
-                                                     <%--<span style="color:#FF0000; font-style: italic; font-size: 12px; margin-top: 6px; display:block; ">  <sup style="display: inline-block;vertical-align: middle;font-size: 12px;">*</sup>Please do'nt use abbreviations.  </span>--%>
-                                                </div>
+    
+                                                 
+                                        </div>
+                                       
+
+                                    </div>
+                                    <div class="row">
+                                        
+                                        
+                                         <div class="col col-md-6">
+                                             <div class="input-container">
+                                                 <i class="fa fa-mobile" aria-hidden="true"></i>
+                                                 <asp:TextBox ID="txtMobile" runat="server" class="form-control" placeholder="Enter Mobile" TextMode="Phone"></asp:TextBox>
+                                                 <asp:RequiredFieldValidator ControlToValidate="txtMobile" runat="server" Text="Please enter Mobile Number" class="form-text"></asp:RequiredFieldValidator>
+                                                 <asp:RegularExpressionValidator ID="revMobile" runat="server" ErrorMessage="Mobile No should 10 digit" ControlToValidate="txtMobile" ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
+                                             </div>
+                                         </div>
+                                        <div class="col col-md-6">
+                                            <div class="input-container">
+                                                <i class="fa fa-key" aria-hidden="true"></i>
+                                                <asp:TextBox ID="txtpassword"  runat="server" EnableTheming="False"  placeholder="Enter Password" TextMode="Password" class="form-control"></asp:TextBox>
+                                                <span class="error-message">*Password should be alphanumeric with one uppercase and a special character.</span>
+                                                <asp:RequiredFieldValidator ControlToValidate="txtpassword" runat="server" class="form-text" ErrorMessage="Please enter password"></asp:RequiredFieldValidator>
+                                            </div>
                                         </div>
                                     </div>
                                                                       
-                                        <div class="row">
+                                    <div class="row">
                                         <div class="col col-md-12">
                                             <div class="remember-wrap text-center">
                                                 Already have account?  <a href="Login.aspx" class="remember-btn">Login</a>
@@ -215,6 +222,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" class="btn btn-primary common-btn" OnCommand="Submit_Click" />
                                     <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
                                 </form>

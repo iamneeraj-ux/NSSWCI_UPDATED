@@ -33,9 +33,9 @@
      <section class="banner">
          <div class="row justify-content-center">
              <div class="col-11 col-md-12 col-lg-12 text-center">
-                 <h2>National Symposium on Safe Water &amp; Chlorination Initiatives</h2>
+                 <h2>National Symposium on Safe Water &amp; Disinfection Chlorination Initiatives</h2>
              </div>
-             <div class="col-11 col-md-8 col-lg-6">  
+             <div class="col-11 col-md-8 col-lg-6 text-center">  
                  <ul>
                      <li>
                          <span>Date: </span> <small>18/01/2024</small>
@@ -60,7 +60,7 @@
              <div class="row justify-content-center mb-4">
                  <div class="col-12 col-md-12 col-lg-12 text-center"> 
                     
-                     <p>Welcome to the National Symposium on Safe Water and Chlorination Initiatives! Join us as we gather experts, officials, and organizations
+                     <p>Welcome to the National Symposium on Safe Water and Disinfection Chlorination Initiatives! Join us as we gather experts, officials, and organizations
                          to share insights and strategies for ensuring clean and safe water</p>
                  </div>
                  <div class="col-12 col-md-6 col-lg-6"> 
